@@ -2,29 +2,29 @@
 
 <h4>Cell phone number:</h4>
 
-  <% if Contact.find(@name).phone_number().cell() == "" %>
+  <% if Contact.find(@name).phone_numbers().cell() == "" %>
     <p>Nothing entered. You could try the number 42 and see if that works.</p>
   <% else %>
-    <p><%= Contact.find(@name).phone_number().cell() %></p>
+    <p><%= Contact.find(@name).phone_numbers().cell() %></p>
   <% end %>
 
 
 <h4>Home phone number:</h4>
 
-<% if Contact.find(@name).phone_number().home() == "" %>
+<% if Contact.find(@name).phone_numbers().home() == "" %>
   <p>Nothing entered. You could try the number 42 and see if that works.</p>
 <% else %>
-  <p><%= Contact.find(@name).phone_number().home() %></p>
+  <p><%= Contact.find(@name).phone_numbers().home() %></p>
 <% end %>
 
 <h4>Work phone number:</h4>
 
-<% if Contact.find(@name).phone_number().work() == "" %>
+<% if Contact.find(@name).phone_numbers().work() == "" %>
   <p>Nothing entered. You could try the number 42 and see if that works.</p>
 <% else %>
-  <p><%= Contact.find(@name).phone_number().work() %></p>
+  <p><%= Contact.find(@name).phone_numbers().work() %></p>
 <% end %>
 
 <form action = "/">
-  <button type = "submit">Back to main page</button>
+  <button type = "submit" class = "btn-primary">Back to main page</button>
 </form>

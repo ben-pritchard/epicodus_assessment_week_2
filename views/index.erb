@@ -3,34 +3,40 @@
   <h3>Remember those old things?</h3>
 </div>
 
-<h4>Add a new contact:</h4>
+<div class = "col-md-6">
 
-<form action = "/index" method = "post">
-  <label for = "name">Enter contact's name:</label>
-  <input id = "name" name = "name" type = "text">
-  <br>
-  <label for = "cell">Enter contact's cell phone number:</label>
-  <input id = "cell" name = "cell" type = "text">
-  <br>
-  <label for = "home">Enter contact's home phone number:</label>
-  <input id = "home" name = "home" type = "text">
-  <br>
-  <label for = "work">Enter contact's work phone number:</label>
-  <input id = "work" name = "work" type = "text">
-  <br>
-  <button type = "submit" class = "btn-primary">Add to contacts</button>
-</form>
+  <h4>Add a new contact:</h4>
 
-<br>
+  <form action = "/index" method = "post">
+    <label for = "name">Name:</label>
+    <input id = "name" name = "name" type = "text">
+    <br>
+    <label for = "cell">Cell phone number:</label>
+    <input id = "cell" name = "cell" type = "text">
+    <br>
+    <label for = "home">Home phone number:</label>
+    <input id = "home" name = "home" type = "text">
+    <br>
+    <label for = "work">Work phone number:</label>
+    <input id = "work" name = "work" type = "text">
+    <br>
+    <button type = "submit" class = "btn-primary">Add to contacts</button>
+  </form>
 
-<h4>Your contacts:</h4>
+</div>
 
-<ul>
-  <% @phone_book.each() do |contact| %>
-    <li><a href = "/contact/<%= contact.name() %>"><%= contact.name() %></a></li>
-  <% end %>
-</ul>
+<div class = "col-md-6">
 
-<form action = "/clear">
-  <button type = "submit" class = "btn-danger">Clear all contacts!</button>
-</form>
+  <h4>Your contacts:</h4>
+
+  <ul>
+    <% @phone_book.each() do |contact| %>
+      <li><a href = "/contact/<%= contact.name() %>"><%= contact.name() %></a></li>
+    <% end %>
+  </ul>
+
+  <form action = "/clear">
+    <button type = "submit" class = "btn-danger">Clear all contacts!</button>
+  </form>
+
+</div>

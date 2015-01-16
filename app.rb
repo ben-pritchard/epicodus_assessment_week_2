@@ -16,8 +16,12 @@ post("/index") do
   home = params.fetch("home")
   work = params.fetch("work")
 
+  if name == ""
+    name = "No Name Bob"
+  end
+
   new_phone = Phone.new( {:cell => cell, :home => home, :work => work} )
-  new_contact = Contact.new( {:name => name, :phone_number => new_phone} )
+  new_contact = Contact.new( {:name => name, :phone_numbers => new_phone} )
   new_contact.save()
 
   redirect("/")

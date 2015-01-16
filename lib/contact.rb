@@ -1,11 +1,11 @@
 class Contact
-  attr_reader(:name, :phone_number)
+  attr_reader(:name, :phone_numbers)
 
   @@phone_book = []
 
   define_method(:initialize) do |info|
     @name = info[:name]
-    @phone_number = info[:phone_number]
+    @phone_numbers = info[:phone_numbers]
   end
 
   define_singleton_method(:all) do
@@ -14,6 +14,7 @@ class Contact
 
   define_method(:save) do
     @@phone_book.push(self)
+    Contact.alphabetize()
   end
 
   define_singleton_method(:clear) do
@@ -37,6 +38,10 @@ class Contact
       end
     end
     return_contact
+  end
+
+  define_singleton_method(:alphabetize) do
+    @@phone_book.sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
 end
