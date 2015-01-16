@@ -28,4 +28,15 @@ class Contact
     @names
   end
 
+  define_singleton_method(:find) do |name|
+    return_contact = nil
+    @@phone_book.each() do |contact|
+      if name == contact.name()
+        return_contact = contact
+        break
+      end
+    end
+    return_contact
+  end
+
 end

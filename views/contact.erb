@@ -1,0 +1,30 @@
+<h1>Contact Info for <%= @name %>:</h1>
+
+<h4>Cell phone number:</h4>
+
+  <% if Contact.find(@name).phone_number().cell() == "" %>
+    <p>Nothing entered. You could try the number 42 and see if that works.</p>
+  <% else %>
+    <p><%= Contact.find(@name).phone_number().cell() %></p>
+  <% end %>
+
+
+<h4>Home phone number:</h4>
+
+<% if Contact.find(@name).phone_number().home() == "" %>
+  <p>Nothing entered. You could try the number 42 and see if that works.</p>
+<% else %>
+  <p><%= Contact.find(@name).phone_number().home() %></p>
+<% end %>
+
+<h4>Work phone number:</h4>
+
+<% if Contact.find(@name).phone_number().work() == "" %>
+  <p>Nothing entered. You could try the number 42 and see if that works.</p>
+<% else %>
+  <p><%= Contact.find(@name).phone_number().work() %></p>
+<% end %>
+
+<form action = "/">
+  <button type = "submit">Back to main page</button>
+</form>
