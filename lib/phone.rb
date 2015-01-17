@@ -7,4 +7,16 @@ class Phone
     @work = numbers[:work]
   end
 
+  define_method(:add_cell) do |cell|
+    @cell = cell
+  end
+
+  define_method(:add_home) do |home|
+    @home = home
+  end
+
+  define_method(:add_work) do |work|
+    @work = work
+  end
+
 end

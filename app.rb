@@ -44,3 +44,30 @@ post("/delete") do
 
   redirect("/")
 end
+
+post("/add_cell") do
+  cell = params.fetch("new_cell")
+  name = Contact.get_transporter()
+
+  Contact.find(name).phone_numbers().add_cell(cell)
+
+  redirect("/")
+end
+
+post("/add_home") do
+  cell = params.fetch("new_home")
+  name = Contact.get_transporter()
+
+  Contact.find(name).phone_numbers().add_home(cell)
+
+  redirect("/")
+end
+
+post("/add_work") do
+  cell = params.fetch("new_work")
+  name = Contact.get_transporter()
+
+  Contact.find(name).phone_numbers().add_work(cell)
+
+  redirect("/")
+end

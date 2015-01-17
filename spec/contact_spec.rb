@@ -24,7 +24,7 @@ describe(Contact) do
   end
 
   describe("#phone_numbers") do
-    it("returns the name of the contact") do
+    it("returns the phone numbers of the contact") do
       yodas_digits = Phone.new( {:cell => "111-111-1111", :home => "111-111-1110", :work => "111-111-1101"} )
       yoda = Contact.new( {:name => "Master Yoda", :phone_numbers => yodas_digits} )
       expect(yoda.phone_numbers()).to(eq(yodas_digits))
@@ -118,6 +118,19 @@ describe(Contact) do
       obiwan.save()
       Contact.delete("Darth Vader")
       expect(Contact.all()).to(eq([obiwan, yoda]))
+    end
+  end
+
+  describe(".get_transporter") do
+    it("returns the 'transporter' variable value") do
+      expect(Contact.get_transporter()).to(eq("Initial"))
+    end
+  end
+
+  describe(".set_transporter") do
+    it("sets the class variable 'transporter' to a specified value") do
+      Contact.set_transporter("Bill")
+      expect(Contact.get_transporter()).to(eq("Bill"))
     end
   end
 

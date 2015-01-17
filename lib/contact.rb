@@ -2,6 +2,7 @@ class Contact
   attr_reader(:name, :phone_numbers)
 
   @@phone_book = []
+  @@transporter = "Initial"
 
   define_method(:initialize) do |info|
     @name = info[:name]
@@ -50,6 +51,14 @@ class Contact
         @@phone_book.delete(contact)
       end
     end
+  end
+
+  define_singleton_method(:get_transporter) do
+    @@transporter
+  end
+
+  define_singleton_method(:set_transporter) do |transporter|
+    @@transporter = transporter
   end
 
 end

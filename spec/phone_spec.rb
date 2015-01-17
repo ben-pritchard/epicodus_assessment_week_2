@@ -30,4 +30,28 @@ describe(Phone) do
       expect(vaders_digits.work()).to(eq("503-503-5003"))
     end
   end
+
+  describe("#add_cell") do
+    it("adds a cell number") do
+      vaders_digits = Phone.new( {:home => "503-987-6543", :work => "503-503-5003"} )
+      vaders_digits.add_cell("503-503-5000")
+      expect(vaders_digits.cell()).to(eq("503-503-5000"))
+    end
+  end
+
+  describe("#add_home") do
+    it("adds a cell number") do
+      vaders_digits = Phone.new( {:cell => "503-987-6543", :work => "503-503-5003"} )
+      vaders_digits.add_home("503-503-5000")
+      expect(vaders_digits.home()).to(eq("503-503-5000"))
+    end
+  end
+
+  describe("#add_work") do
+    it("adds a cell number") do
+      vaders_digits = Phone.new( {:cell => "503-987-6543", :work => "503-503-5003"} )
+      vaders_digits.add_work("503-503-5000")
+      expect(vaders_digits.work()).to(eq("503-503-5000"))
+    end
+  end
 end
