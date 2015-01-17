@@ -44,4 +44,12 @@ class Contact
     @@phone_book.sort! { |a,b| a.name.downcase <=> b.name.downcase }
   end
 
+  define_singleton_method(:delete) do |name|
+    @@phone_book.each() do |contact|
+      if contact.name() == name
+        @@phone_book.delete(contact)
+      end
+    end
+  end
+
 end

@@ -104,4 +104,21 @@ describe(Contact) do
       expect(Contact.all()).to(eq([obiwan, vader, yoda]))
     end
   end
+
+  describe(".delete") do
+    it("deletes a contact given their name") do
+      vaders_digits = Phone.new( {:cell => "503-123-4567", :home => "503-987-6543", :work => "503-503-5003"} )
+      yodas_digits = Phone.new( {:cell => "111-111-1111", :home => "111-111-1110", :work => "111-111-1101"} )
+      obiwans_digits = Phone.new( {:cell => "541-472-9635", :home => "503-758-4202", :work => "503-231-1102"} )
+      vader = Contact.new( {:name => "Darth Vader", :phone_numbers => vaders_digits} )
+      yoda = Contact.new( {:name => "Master Yoda", :phone_numbers => yodas_digits} )
+      obiwan = Contact.new( {:name => "Ben Kenobi", :phone_numbers => obiwans_digits} )
+      vader.save()
+      yoda.save()
+      obiwan.save()
+      Contact.delete("Darth Vader")
+      expect(Contact.all()).to(eq([obiwan, yoda]))
+    end
+  end
+
 end

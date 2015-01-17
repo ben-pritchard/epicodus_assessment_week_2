@@ -38,3 +38,9 @@ get("/clear") do
 
   redirect("/")
 end
+
+post("/delete") do
+  Contact.delete(params.fetch("delete_name"))
+
+  redirect("/")
+end

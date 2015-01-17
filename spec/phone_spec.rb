@@ -6,7 +6,7 @@ describe(Phone) do
   describe("#home") do
     it("returns nil if one of the phone number fields (cell, home, or work) was not entered") do
       vaders_digits = Phone.new( {:cell => "503-123-4567"} )
-      expect(vaders_digits.home()).to(eq(nil))
+      expect(vaders_digits.work()).to(eq(nil))
     end
   end
 

@@ -5,7 +5,7 @@
 
 <div class = "col-md-6">
 
-  <h4>Add a new contact:</h4>
+  <h3>Add a new contact:</h3>
 
   <form action = "/index" method = "post">
     <label for = "name">Name:</label>
@@ -27,13 +27,27 @@
 
 <div class = "col-md-6">
 
-  <h4>Your contacts:</h4>
+  <h3>Your contacts:</h3>
 
   <ul>
     <% @phone_book.each() do |contact| %>
       <li><a href = "/contact/<%= contact.name() %>"><%= contact.name() %></a></li>
     <% end %>
   </ul>
+
+  <br><br>
+
+  <h4>Delete a contact:</h4>
+
+  <form action = "/delete" method = "post">
+    <label for = "delete_name">Name:</label>
+    <input id = "delete_name" name = "delete_name" type = "text">
+    <br>
+
+    <button type = "submit" class = "btn-primary">Delete</button>
+  </form>
+
+  <br>
 
   <form action = "/clear">
     <button type = "submit" class = "btn-danger">Clear all contacts!</button>
