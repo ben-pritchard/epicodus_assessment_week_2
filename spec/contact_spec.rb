@@ -1,5 +1,6 @@
 require("rspec")
 require("contact")
+require("phone")
 
 describe(Contact) do
 
@@ -131,6 +132,16 @@ describe(Contact) do
     it("sets the class variable 'transporter' to a specified value") do
       Contact.set_transporter("Bill")
       expect(Contact.get_transporter()).to(eq("Bill"))
+    end
+  end
+
+  describe("#replace_digits") do
+    it("replaces someone's Phone information") do
+      vaders_digits = Phone.new( {:cell => "541-231-1111"})
+      new_digits = Phone.new( {:cell => "541-231-1100"})
+      vader = Contact.new( {:name => "Darth Vader", :phone_numbers => vaders_digits} )
+      vader.replace_digits(new_digits)
+      expect(vader.phone_numbers()).to(eq(new_digits))
     end
   end
 

@@ -3,7 +3,7 @@
 <h4>Cell phone number:</h4>
 
   <% if Contact.find(@name).phone_numbers().cell() == "" %>
-    <form action = "/add_cell" method = "post">
+    <form action = "/insert_cell" method = "post">
       <label for = "new_cell">Add cell phone number:</label>
       <input id = "new_cell" name = "new_cell" type = "text">
       <% Contact.set_transporter(@name) %>
@@ -17,7 +17,7 @@
 <h4>Home phone number:</h4>
 
   <% if Contact.find(@name).phone_numbers().home() == "" %>
-    <form action = "/add_home" method = "post">
+    <form action = "/insert_home" method = "post">
       <label for = "new_home">Add home phone number:</label>
       <input id = "new_home" name = "new_home" type = "text">
       <% Contact.set_transporter(@name) %>
@@ -30,7 +30,7 @@
 <h4>Work phone number:</h4>
 
   <% if Contact.find(@name).phone_numbers().work() == "" %>
-    <form action = "/add_work" method = "post">
+    <form action = "/insert_work" method = "post">
       <label for = "new_work">Add work phone number:</label>
       <input id = "new_work" name = "new_work" type = "text">
       <% Contact.set_transporter(@name) %>

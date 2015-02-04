@@ -61,4 +61,8 @@ class Contact
     @@transporter = transporter
   end
 
+  define_method(:replace_digits) do |new_digits|
+    @phone_numbers = new_digits
+  end
+
 end
